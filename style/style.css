@@ -66,17 +66,22 @@ body{
   gap: 50px;
   align-items: flex-start;
 }
-.notes p{
+.note-container{
+  position: relative;
   width: 30%;
+}
+
+.notes textarea {
+  width: 100%;
   min-height: 250px;
   padding: 20px;
-  padding-bottom: 45px;
   font-size: 22px;
   background: #C8E6C9;
   border-radius: 10px;
   font-family: "Patrick Hand", cursive;
   letter-spacing: 2px;
-  position: relative;
+  border: 1px solid white;
+  text-align: left;
 }
 .saveBtn{
   position: absolute;
@@ -100,11 +105,12 @@ body{
   cursor: pointer;
 }
 .delBtn{
-  position: absolute;
-  bottom: 2%;
-  right: 2%;
+  margin-left: 10px;
   font-size: 12px;
   padding: 5px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
   background: transparent;
   border: 1px solid transparent;
   border-radius: 100%;
