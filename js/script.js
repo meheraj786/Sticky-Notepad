@@ -1,5 +1,5 @@
 function add() {
-  let input= document.createElement("input")
-  input.type="text"
-  document.body.appendChild(input)
+  let input= document.createElement("p")
+input.contentEditable=true
+  document.querySelector(".notes").appendChild(input)
 }
