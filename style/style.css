@@ -5,6 +5,19 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root{
+  --Yellow: #FFF9C4;
+  --Green: #C8E6C9;
+  --Pink: #FFCDD2;
+  --Blue: #BBDEFB;
+  --Lavender: #E1BEE7;
+  --Orange: #faaf75;
+  --Purple: #9973db;
+  --Lemon : #FFF9C4;
+  --Cream  : #FFE0B2;
+  --Coral   : #FFCDD2;
+  --Lilac    : #D7C6E6;
+}
 body{
   background: #d5bdaf;
 }
@@ -35,10 +48,20 @@ body{
   font-family: "Poppins", sans-serif; 
   margin: 30px 0;
   background: #E1BEE7;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+#main .add:hover{
+  font-size: 18px;
+  color: #1b263b;
+  background: transparent;
+  border: 1px solid #1b263b;
 }
 .notes{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 50px;
   align-items: flex-start;
@@ -47,6 +70,7 @@ body{
   width: 30%;
   min-height: 250px;
   padding: 20px;
+  padding-bottom: 45px;
   font-size: 22px;
   background: #C8E6C9;
   border-radius: 10px;
@@ -57,7 +81,7 @@ body{
 .saveBtn{
   position: absolute;
   bottom: 2%;
-  right: 2%;
+  right: 10%;
   padding: 5px;
   background: transparent;
   border: 1px solid transparent;
@@ -66,8 +90,9 @@ body{
 }
 .editBtn{
   position: absolute;
+  display: none;
   bottom: 2%;
-  right: 12%;
+  right: 10%;
   padding: 5px;
   background: transparent;
   border: 1px solid transparent;
@@ -77,7 +102,7 @@ body{
 .delBtn{
   position: absolute;
   bottom: 2%;
-  right: 22%;
+  right: 2%;
   font-size: 12px;
   padding: 5px;
   background: transparent;
