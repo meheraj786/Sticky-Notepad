@@ -6,6 +6,10 @@
     background: #edede9;
     min-height: 500px;
   }
+  .note-container{
+    position: relative;
+    width: 100%;
+  }
   #main h1{
     font-family: "Poppins", sans-serif; 
     color: #1b263b;
@@ -20,6 +24,9 @@
   #main .add{
     padding: 10px 25px;
   font-size: 16px;
+  }
+  textarea{
+    width: 100%;
   }
   .notes p{
     width: 100%;
