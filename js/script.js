@@ -14,10 +14,21 @@ let colors = [
   "var(--Lilac)"
 ];
 
+// Load notes from local storage
+window.onload = function() {
+  let notes = JSON.parse(localStorage.getItem("notes")) || [];
+  notes.forEach(note => {
+    createNote(note.content, note.color);
+  });
+};
+
 function add() {
   let index = Math.floor(Math.random() * colors.length);
   let color = colors[index];
+  createNote("", color);
+}
 
+function createNote(content, color) {
   // Create note container
   let noteContainer = document.createElement("div");
   noteContainer.classList.add("note-container");
@@ -25,6 +36,7 @@ function add() {
   // Create textarea
   let textarea = document.createElement("textarea");
   textarea.placeholder = "Write your note here...";
+  textarea.value = content;
   textarea.style.backgroundColor = color;
   textarea.style.width = "100%";
   textarea.style.minHeight = "250px";
@@ -44,6 +56,7 @@ function add() {
   delBtn.innerHTML = ` <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2zM18 4h-2.5l-.71-.71c-.18-.18-.44-.29-.7-.29H9.91c-.26 0-.52.11-.7.29L8.5 4H6c-.55 0-1 .45-1 1s.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1"/></svg>`;
   delBtn.onclick = function() {
     noteContainer.remove();
+    saveNotes();
   };
 
   // Append textarea and delete button to note container
@@ -56,8 +69,23 @@ function add() {
   // Update add button and logo color
   addBtn.style.backgroundColor = color;
   logo.style.color = color;
+
+  // Save notes to local storage
+  saveNotes();
+}
+
+function saveNotes() {
+  let notes = [];
+  document.querySelectorAll(".note-container textarea").forEach(textarea => {
+    notes.push({
+      content: textarea.value,
+      color: textarea.style.backgroundColor
+    });
+  });
+  localStorage.setItem("notes", JSON.stringify(notes));
 }
 
 function del(elem) {
   elem.parentElement.remove();
+  saveNotes();
 }
